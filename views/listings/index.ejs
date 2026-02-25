@@ -1,0 +1,67 @@
+<% layout("/layouts/boiler") %>
+
+<h3>All Listings</h3>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1" >
+  <% for(let listing of allListings) { %>
+
+    <a href="/listings/<%=listing._id%>" class="listing-link">
+<div class="card" >
+
+<!-- <% if (listing.image && listing.image.url) { %>
+  <img 
+    src="<%= listing.image.url %>" 
+    class="card-img-top"
+    alt="listing image"
+    style="height: 20rem">
+<% } else { %>
+  <img 
+    src="https://via.placeholder.com/300"
+    class="card-img-top"
+    alt="default image">
+    
+<% } %> -->
+
+
+
+<% if (listing.image && listing.image.url) { %>
+  <!-- Old format (object) -->
+  <img 
+    src="<%= listing.image.url %>" 
+    class="card-img-top"
+    style="height: 20rem; object-fit: cover;">
+<% } else if (listing.image) { %>
+  <!-- New format (string) -->
+  <img 
+    src="<%= listing.image %>" 
+    class="card-img-top"
+    style="height: 20rem; object-fit: cover;">
+<% } else { %>
+  <!-- Fallback -->
+  <img 
+    src="https://via.placeholder.com/300"
+    class="card-img-top">
+<% } %>
+
+  <div class="card-body">
+    <p class="card-text"></p>
+   <b> <%= listing.title %> <br></b>
+   <!-- &#8377; <%= listing.price.toLocaleString("en-IN") %> /night <br> -->
+   <!-- &#8377; <%= Number(listing.price || 0).toLocaleString("en-IN") %> /night -->
+    
+&#8377; <%= Number(listing.price || 0).toLocaleString("en-IN") %> /night
+  </div>
+</div>
+</a>
+<% } %>
+</div>
+
+
+
+
+
+<!-- <ul>
+<% for(let listing of allListings) { %>
+  <li> <a href="/listings/<%= listing._id %>" <%= listing.title %> </a></li>
+<% } %>
+</ul> -->
