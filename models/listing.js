@@ -39,11 +39,23 @@ const listingSchema = new mongoose.Schema({
   description: String,
 
   image: {
-    url: String,
-    filename: String,
+    url: {
+      type: String,
+      default: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    },
+    filename: {
+      type: String,
+      default: "default",
+    },
   },
 
-  price: Number,
+  price: {
+    type: Number,
+    required: true,
+    default: 0,
+    min: 0,
+  },
+
   location: String,
   country: String,
 });

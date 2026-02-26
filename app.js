@@ -51,13 +51,18 @@ app.get("/listing/new",async (req,res)=>{
     res.render("listings/new.ejs")
 })
 
-//Create Route
-app.post("/listings",async (req,res) =>{
-//let{title,description,image,price,country,location}=req.body;
-//let listing=req.body.listing;
-const newListing = new Listing(req.body.listing);
-await newListing.save();
-res.redirect("/listings");
+app.post("/listings", async (req, res) => {
+  const newListing = new Listing(req.body.listing);
+
+  // 🔑 IMAGE KO OBJECT BANAO (VERY IMPORTANT)
+  newListing.image = {
+    url: req.body.listing.image || 
+         "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    filename: "default",
+  };
+
+  await newListing.save();
+  res.redirect("/listings");
 });
 
 //Edit route
@@ -67,12 +72,37 @@ app.get("/listings/:id/edit",async (req,res) =>{
     res.render("listings/edit.ejs",{listing});
 });
 
-//update route
-app.put("/listings/:id",async(req,res)=>{
- let{id}=req.params;
- await Listing.findByIdAndUpdate(id,{...req.body.listing});
- res.redirect("/listings");
-})
+
+// update route (SAFE VERSION)
+app.put("/listings/:id", async (req, res) => {
+    let { id } = req.params;
+
+    const listing = await Listing.findById(id);
+
+    // text fields (ye already sahi kaam kar rahe the)
+    listing.title = req.body.listing.title;
+    listing.description = req.body.listing.description;
+    listing.price = req.body.listing.price;
+    listing.location = req.body.listing.location;
+    listing.country = req.body.listing.country;
+
+    // 🔑 IMAGE SAFE LOGIC (IMPORTANT)
+    // sirf tab update karo jab naya image URL aaye
+ if (
+  req.body.listing.image &&
+  req.body.listing.image.url &&
+  req.body.listing.image.url.trim() !== ""
+) {
+  listing.image = {
+    url: req.body.listing.image.url,
+    filename: "default",
+  };
+}
+    // warna purani image bilkul waise hi rahegi
+
+    await listing.save();
+    res.redirect("/listings");
+});
 
 //Delete listing
 app.delete("/listings/:id", async(req,res)=>{
