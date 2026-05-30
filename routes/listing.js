@@ -4,7 +4,8 @@ const {listingSchema}=require("../schema.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
 const Listing=require("../models/listing.js");
-
+const listingController=require("../controllers/listings.js");
+const {isLoggedIn}=require("../middleware.js");
 
 const validateListing = (req, res, next) => {
     let { error } = listingSchema.validate(req.body);
@@ -21,16 +22,12 @@ const validateListing = (req, res, next) => {
 
 
 //index route
-router.get("/",async (req,res)=>{
- const allListings=await Listing.find({});
- res.render("listings/index",{allListings});
-      
-    });
+router.get("/",wrapAsync(listingController.index));
     
     //new route
-router.get("/new",async (req,res)=>{
-    res.render("listings/new.ejs")
-})
+router.get("/new",isLoggedIn, (req,res)=>{
+    res.render("listings/new.ejs");
+});
 
 
 //show route
@@ -70,6 +67,7 @@ router.get("/:id", async(req,res)=>{
   };
 
   await newListing.save();
+  req.flash("success","New Listing Created");
   res.redirect("/listings"); 
     } catch(err){
         next(err);
@@ -77,15 +75,16 @@ router.get("/:id", async(req,res)=>{
 }));
 
 //Edit route
-router.get("/:id/edit",async (req,res) =>{
+router.get("/:id/edit",isLoggedIn,async (req,res) =>{
     let{id}=req.params;
     const listing=await Listing.findById(id);
+   
     res.render("listings/edit.ejs",{listing});
 });
 
 
 // update route (SAFE VERSION)
-router.put("/:id", async (req, res) => {
+router.put("/:id", isLoggedIn,async (req, res) => {
     let { id } = req.params;
 
     const listing = await Listing.findById(id);
@@ -109,16 +108,17 @@ if (
   };
 }
     // warna purani image bilkul waise hi rahegi
-
+     req.flash("success"," Listing Updated");
     await listing.save();
     res.redirect("/listings");
 });
 
 //Delete listing
-router.delete("/:id", async(req,res)=>{
+router.delete("/:id",isLoggedIn, async(req,res)=>{
     let{id}=req.params;
        id = id.trim(); 
     let deletedListing=await Listing.findByIdAndDelete(id);
+    req.flash("success"," Listing Deleted");
     console.log(deletedListing);
     res.redirect("/listings");
 });
