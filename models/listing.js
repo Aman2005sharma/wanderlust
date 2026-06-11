@@ -11,14 +11,16 @@ const listingSchema = new mongoose.Schema({
   description: String,
 
   image: {
-    url: {
-      type: String,
-      default: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
-    },
-    filename: {
-      type: String,
-      default: "default",
-    },
+    // url: {
+    //   type: String,
+    //   default: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    // },
+    // filename: {
+    //   type: String,
+    //   default: "default",
+    // },
+    url:String,
+    filename:String
   },
 
   price: {
@@ -30,12 +32,26 @@ const listingSchema = new mongoose.Schema({
 
   location: String,
   country: String,
+
+  category: {
+  type: String,
+  enum: ["trending","bedroom","iconic cities","mountains", "beaches", "farms","snow","amazing-pools","hiking","tents"],
+},
+
+  latitude: Number,
+  longitude: Number,
+
   reviews:[
     {
       type:Schema.Types.ObjectId,
       ref:"Review"
     }
-  ]
+    
+  ],
+  owner: {
+     type:Schema.Types.ObjectId,
+      ref:"User"
+  }
 });
 
 listingSchema.post("findOneAndDelete",async(listing)=>{

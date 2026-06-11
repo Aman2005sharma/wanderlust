@@ -115,6 +115,7 @@ border: none;
 
 /* show image */
 .show-img{
+     
     height: 30vh;
     border-radius: 1rem;
 }
@@ -126,4 +127,12 @@ border: none;
 .show-card{
     padding-right: 0;
     padding-left: 0;
+}
+
+.review-card {
+    border: 1px solid #ddd;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
