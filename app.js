@@ -71,7 +71,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-console.log("DB URL:", dbUrl);
+// console.log("DB URL:", dbUrl);
 main()
     .then(()=>{
         console.log("connected to DB");
@@ -115,9 +115,10 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.get("/test", (req, res) => {
-    res.send("Test Route Working");
+app.get("/", (req, res) => {
+    res.redirect("/listings");
 });
+
 app.use("/listings",listingRouter)
 app.use("/listings/:id/reviews",reviewRouter)
 app.use("/",userRouter)
