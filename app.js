@@ -115,6 +115,9 @@ app.use((req,res,next)=>{
     next();
 });
 
+app.get("/test", (req, res) => {
+    res.send("Test Route Working");
+});
 app.use("/listings",listingRouter)
 app.use("/listings/:id/reviews",reviewRouter)
 app.use("/",userRouter)
