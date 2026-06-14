@@ -15,7 +15,20 @@
 }
 .input-btn{
   border-radius: 25px;
-  padding: 0.5rem 3rem 0.5rem 3rem;
+  width: 180px;
+  padding: 0.5rem 1rem;
+}
+
+@media (max-width: 768px){
+
+  .input-btn{
+    width: 130px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .search-btn{
+    padding: 0.4rem 0.8rem;
+  }
 }
 </style>
 
@@ -32,7 +45,7 @@
 
       </div>
       <div class="navbar-nav ms-auto">
-  <form class="d-flex" role="search">
+<form class="d-flex" role="search">
     <input class="form-control me-2 input-btn" type="search" placeholder="Search destination">
     <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
   </form>
