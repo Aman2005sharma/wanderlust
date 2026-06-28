@@ -15,7 +15,9 @@
 }
 .input-btn{
   border-radius: 25px;
-  width: 180px;
+    width:100%;
+    min-width:180px;
+    max-width:350px;
   padding: 0.5rem 1rem;
 }
 
@@ -29,6 +31,22 @@
   .search-btn{
     padding: 0.4rem 0.8rem;
   }
+
+  .navbar-nav{
+    text-align:center;
+}
+.d-flex{
+    flex-direction:column;
+    width:100%;
+    gap:10px;
+}
+
+.search-btn{
+    width:100%;
+}
+.nav-link{
+    padding:10px 0;
+}
 }
 </style>
 
@@ -44,12 +62,14 @@
 
 
       </div>
-      <div class="navbar-nav ms-auto">
-<form class="d-flex" role="search">
+      <!-- <div class="navbar-nav ms-auto">
+<form class="d-flex w-100 justify-content-center" role="search">
     <input class="form-control me-2 input-btn" type="search" placeholder="Search destination">
     <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
   </form>
-</div>
+</div> -->
+<!-- place change hua hai -->
+ 
         <div class="navbar-nav ms-auto">
            <a class="nav-link" href="/listings/new">Airbnb your home</a>
           <% if(!currUser) { %>
@@ -59,6 +79,13 @@
            <% if(currUser) { %>
         <a class="nav-link" href="/logout">Log out</a>
           <% } %>
+
+          <div class="navbar-nav ms-auto">
+<form class="d-flex w-100 justify-content-center" role="search">
+    <input class="form-control me-2 input-btn" type="search" placeholder="Search destination">
+    <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+  </form>
+</div>
       </div>
     </div>
   </div>
