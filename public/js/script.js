@@ -1,4 +1,4 @@
-console.log("BOOTSTRAP VALIDATION LOADED");
+
  // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
   'use strict'
