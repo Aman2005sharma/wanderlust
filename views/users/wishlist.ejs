@@ -1,0 +1,35 @@
+<% layout("/layouts/boiler") %>
+
+<h3 class="mb-4">My Wishlist</h3>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+  <% for(let listing of wishlist) { %>
+    <div class="col mb-4">
+      <a href="/listings/<%= listing._id %>" class="listing-link">
+        <div class="card listing-card">
+          <img
+            src="<%= listing.image?.url || 'https://via.placeholder.com/300' %>"
+            class="card-img-top"
+            alt="listing image"
+          >
+
+          <div class="card-body">
+            <b><%= listing.title %></b><br>
+            &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
+          </div>
+        </div>
+      </a>
+
+      <form method="POST" action="/wishlist/<%= listing._id %>/remove">
+        <button class="btn btn-sm btn-outline-danger mt-2">Remove</button>
+      </form>
+    </div>
+  <% } %>
+</div>
+
+<% if(wishlist.length === 0) { %>
+  <div class="empty-state">
+    <h4>No saved listings yet</h4>
+    <p>Tap the heart on any listing to save it here.</p>
+  </div>
+<% } %>

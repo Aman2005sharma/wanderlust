@@ -9,8 +9,14 @@ const userSchema=new Schema({
         required:true
 
     },
-    
+    wishlist: [
+  {
+    type: Schema.Types.ObjectId,
+    ref: "Listing"
+  }
+] 
 });
+
     userSchema.plugin(passportLocalMongoose);
     
 module.exports = mongoose.model("User", userSchema);

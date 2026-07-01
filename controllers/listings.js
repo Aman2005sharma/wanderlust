@@ -2,15 +2,25 @@ const Listing=require("../models/listing");
 const axios = require("axios");
 
 module.exports.index = async (req, res) => {
-  const { category } = req.query;
+    
+  const { category, search } = req.query;
 
-  let allListings;
+  let query = {};
 
   if (category) {
-    allListings = await Listing.find({ category: category });
-  } else {
-    allListings = await Listing.find({});
+    query.category = category;
   }
+
+  if (search) {
+    query.$or = [
+      { title: { $regex: search, $options: "i" } },
+      { location: { $regex: search, $options: "i" } },
+      { country: { $regex: search, $options: "i" } },
+      { category: { $regex: search, $options: "i" } }
+    ];
+  }
+
+  const allListings = await Listing.find(query);
 
   res.render("listings/index.ejs", { allListings });
 };
@@ -125,3 +135,4 @@ console.log(response.data);
         console.log(deletedListing);
         res.redirect("/listings");
     };
+
