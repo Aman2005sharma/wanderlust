@@ -32,7 +32,7 @@ module.exports.renderLoginForm=(req,res)=>{
 };
 
 module.exports.login=async(req,res)=>{
-        req.flash("success" , "Welcome back to Wanderlust!");
+        req.flash("success" , "Welcome To Wanderlust!");
           let redirectUrl = res.locals.redirectUrl || "/listings";
         res.redirect( redirectUrl);
     };
@@ -42,7 +42,7 @@ module.exports.loguot=(req,res,next)=>{
         if (err){
             next(err);
         }
-        req.flash("success","you are logged out");
+        req.flash("success","Logout successful.");
         res.redirect("/listings");
     });
 }

@@ -1,9 +1,21 @@
 <% layout("/layouts/boiler") %> 
 
+<section class="hero-banner">
+  <div class="hero-overlay">
+    <h1>Har safar ka apna yaar</h1>
+    <p>Discover unique places around the world</p>
+  </div>
+</section>
+
 <div class="filters-container">
   <div id="filters">
+
+      <a href="/listings" class="filter">
+  <div><i class="fa-solid fa-globe"></i></div>
+  <p>All</p>
+</a>
    
-       <a href="/listings?category=trending" class="filter">
+      <a href="/listings?category=trending" class="filter">
   <div><i class="fa-solid fa-fire"></i></div>
   <p>Trending</p>
 </a>
@@ -33,15 +45,6 @@
   <p>Beach</p>
 </a>
    
-      <a href="/listings?category=farms" class="filter">
-       <div><i class="fa-solid fa-truck-field"></i></div>
-       <p>Farm</p>
-       </a>
-   
-      <a href="/listings?category=hiking" class="filter">
-       <div><i class="fa-solid fa-person-hiking"></i></div>
-       <p>Hiking</p>
-       </a>
     
        <a href="/listings?category=tents" class="filter">
   <div><i class="fa-solid fa-campground"></i></div>
@@ -83,8 +86,7 @@
       <i class="fa-regular fa-heart"></i>
     </button>
   </form>
-<% } %>
-
+ <% } %>
 
         <div class="card-body">
           <b><%= listing.title %></b><br>

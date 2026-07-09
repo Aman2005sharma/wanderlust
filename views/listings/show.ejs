@@ -1,11 +1,14 @@
 <% layout("/layouts/boiler") %>
-
     <div class="row">
        <div class="col-12 col-md-8 mx-auto">
 
     
 
     <div class="row col-8 offset-2 show-card listing-card">
+      <a href="/listings" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Listings
+        </a>
          <h3><%= listing.title %></h3>
        <img src="<%=  listing.image.url %>" class="card-img-top show-img" alt="listing_image">
   <div class="card-body">

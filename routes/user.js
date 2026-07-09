@@ -35,7 +35,7 @@ router.post("/wishlist/:id", isLoggedIn, wrapAsync(async (req, res) => {
   if (!user.wishlist.includes(id)) {
     user.wishlist.push(id);
     await user.save();
-    req.flash("success", "Added to wishlist");
+    req.flash("success", "Added To Wshlist!!");
   }
 
   res.redirect(req.get("Referrer") || "/listings");
@@ -48,7 +48,7 @@ router.post("/wishlist/:id/remove", isLoggedIn, wrapAsync(async (req, res) => {
     $pull: { wishlist: id }
   });
 
-  req.flash("success", "Removed from wishlist");
+  req.flash("success", "Removed From Wishlist");
   res.redirect(req.get("Referrer") || "/listings");
 }));
 
