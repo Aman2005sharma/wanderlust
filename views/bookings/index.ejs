@@ -1,0 +1,36 @@
+<% layout("/layouts/boiler") %>
+
+<div class="container mt-4">
+
+          <a href="/listings" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Listings
+        </a>
+
+    <h2>My Bookings</h2>
+
+    <% if(bookings.length === 0){ %>
+
+        <h4>No Bookings Yet!</h4>
+
+    <% } else { %>
+
+        <% bookings.forEach((booking)=> { %>
+
+            <div class="card mb-3">
+                <div class="card-body">
+
+                    <h3><%= booking.listing.title %></h3>
+
+                    <p>₹ <%= booking.totalPrice %></p>
+
+                    <p>Guests: <%= booking.guests %></p>
+
+                </div>
+            </div>
+
+        <% }) %>
+
+    <% } %>
+
+</div>

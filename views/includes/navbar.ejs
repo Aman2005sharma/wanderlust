@@ -3,6 +3,8 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings">
       <i class="fa-solid fa-hotel"></i>
+       <span class="brand-name">Wanderlust</span>
+
     </a>
 
     <button
@@ -19,7 +21,7 @@
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav me-auto">
-        <a class="nav-link" href="/listings">Explore</a>
+        <!-- <a class="nav-link" href="/listings">Explore</a> -->
       </div>
 
   <form class="d-flex search-form w-100 justify-content-center" action="/listings" method="GET" role="search">
@@ -27,15 +29,20 @@
     class="form-control me-2 input-btn"
     type="search"
     name="search"
-    placeholder="Search destination"
+    placeholder="🔍 Where are you going?"
   >
+
+  
   <button class="btn search-btn" type="submit">
     <i class="fa-solid fa-magnifying-glass"></i> Search
   </button>
 </form>
 
       <div class="navbar-nav ms-lg-auto">
-        <a class="nav-link" href="/listings/new">List Your Stay</a>
+         <a class="nav-link" href="/listings/new">
+          <!-- <i class="fa-solid fa-plus"></i> -->
+          + Become a Host
+        </a>
 
         <% if(!currUser) { %>
           <a class="nav-link" href="/signup"><b>Sign up</b></a>
@@ -43,8 +50,49 @@
         <% } %>
 
         <% if(currUser) { %>
-          <a class="nav-link" href="/wishlist">Wishlist</a>
-          <a class="nav-link" href="/logout">Log out</a>
+          <a class="nav-link" href="/wishlist">♡ Wishlist</a>
+          <!-- <a class="nav-link" href="/logout">Log out</a> -->
+          <div class="dropdown">
+
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <i class="fa-solid fa-user-circle"></i>
+    <%= currUser.username %>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-end">
+
+    <li>
+      <a class="dropdown-item" href="/bookings">
+        <i class="fa-solid fa-calendar-check"></i>
+        My Bookings
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="/wishlist">
+        <i class="fa-solid fa-heart"></i>
+        Wishlist
+      </a>
+    </li>
+
+    <li><hr class="dropdown-divider"></li>
+
+    <li>
+      <a class="dropdown-item text-danger" href="/logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+      </a>
+    </li>
+
+  </ul>
+
+</div>
         <% } %>
       </div>
     </div>

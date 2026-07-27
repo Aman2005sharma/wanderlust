@@ -22,6 +22,8 @@ const ExpressError = require("./utils/ExpressError.js");
 const listingRouter=require("./routes/listing.js");
 const reviewRouter=require("./routes/review.js");
 const userRouter=require("./routes/user.js");
+const bookingRouter = require("./routes/bookings");
+const staticRoutes = require ("./routes/static.js")
 
 const session=require("express-session");
 const MongoStore = require("connect-mongo").default;
@@ -122,6 +124,8 @@ app.get("/", (req, res) => {
 app.use("/listings",listingRouter)
 app.use("/listings/:id/reviews",reviewRouter)
 app.use("/",userRouter)
+app.use("/bookings", bookingRouter);
+app.use("/",staticRoutes);
 
 app.use((err,req,res,next) =>{
      console.log(err);

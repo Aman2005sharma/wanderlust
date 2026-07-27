@@ -10,48 +10,58 @@
 <div class="filters-container">
   <div id="filters">
 
-      <a href="/listings" class="filter">
-  <div><i class="fa-solid fa-globe"></i></div>
-  <p>All</p>
+ <a href="/listings"
+   class="filter <%= selectedCategory === 'all' ? 'active' : '' %>">
+    <div><i class="fa-solid fa-globe"></i></div>
+    <p>All</p>
 </a>
-   
-      <a href="/listings?category=trending" class="filter">
+
+      <a href="/listings?category=trending" 
+      class="filter <%= selectedCategory === 'trending' ? 'active' : '' %>" >
   <div><i class="fa-solid fa-fire"></i></div>
   <p>Trending</p>
 </a>
    
-       <a href="/listings?category=bedroom" class="filter">
+       <a href="/listings?category=bedroom" 
+       class="filter
+       <%= selectedCategory === 'bedroom' ? 'active' : '' %>">
   <div><i class="fa-solid fa-bed"></i></div>
   <p>Bedrooms</p>
 </a>
   
-       <a href="/listings?category=iconic cities" class="filter">
+       <a href="/listings?category=iconic cities" 
+       class="filter <%= selectedCategory === 'iconic cities' ? 'active' : '' %>">
   <div><i class="fa-solid fa-mountain-city"></i></div>
   <p>Iconic Cities</p>
 </a>
     
-      <a href="/listings?category=mountains" class="filter">
+      <a href="/listings?category=mountains" 
+      class="filter <%= selectedCategory === 'mountains' ? 'active' : '' %>">
   <div><i class="fa-solid fa-mountain"></i></div>
   <p>Mountains</p>
 </a>
    
-       <a href="/listings?category=amazing-pools" class="filter">
+       <a href="/listings?category=amazing-pools"
+        class="filter <%= selectedCategory === 'amazing-pools' ? 'active' : '' %>">
   <div><i class="fa-solid fa-person-swimming"></i></div>
   <p>Amazing Pools</p>
 </a>
     
-       <a href="/listings?category=beaches" class="filter">
+       <a href="/listings?category=beaches"
+        class="filter <%= selectedCategory === 'beaches' ? 'active' : '' %>" >
   <div><i class="fa-solid fa-umbrella-beach"></i></div>
   <p>Beach</p>
 </a>
    
     
-       <a href="/listings?category=tents" class="filter">
+       <a href="/listings?category=tents" 
+       class="filter <%= selectedCategory === 'tents' ? 'active' : '' %>">
   <div><i class="fa-solid fa-campground"></i></div>
   <p>Tent</p>
 </a>
     
-       <a href="/listings?category=snow" class="filter">
+       <a href="/listings?category=snow"
+        class="filter <%= selectedCategory === 'snow' ? 'active' : '' %>">
   <div><i class="fa-regular fa-snowflake"></i></div>
   <p>Arctic</p>
 </a>
@@ -115,3 +125,17 @@
     }
   });
 </script>
+
+<% if (allListings.length > 0) { %>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1">
+    <% for (let listing of allListings) { %>
+      <!-- your current listing card -->
+    <% } %>
+  </div>
+<% } else { %>
+  <div class="text-center py-5">
+    <h3>No places found</h3>
+    <p>Try a different search or category.</p>
+    <a href="/listings" class="btn btn-dark">Show all listings</a>
+  </div>
+<% } %>
