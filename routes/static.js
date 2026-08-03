@@ -9,4 +9,8 @@ router.get("/terms",(req,res)=>{
     res.render("static/terms.ejs");
 });
 
+router.get("/details",(req,res)=>{
+    res.render("static/details.ejs");
+})
+
 module.exports = router;

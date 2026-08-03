@@ -14,6 +14,7 @@ body {
 
 .container {
   flex: 1;
+  margin-top: 80px;
 }
 
 /* Navbar */
@@ -27,6 +28,29 @@ body {
 .fa-hotel {
   color: #fe424d;
   font-size: 2rem;
+  margin-left: 10px;
+}
+.navbar-brand{
+  display: flex;
+  align-items: center;
+  gap: 0rem;
+}
+
+.navbar-brand span{
+  font-weight: 500;
+}
+
+@media(max-width:768px){
+
+.navbar-brand{
+    font-size:1rem;
+
+}
+
+.navbar-brand i{
+    font-size:1.7rem;
+}
+
 }
 
  .nav-link {
@@ -192,7 +216,7 @@ body {
   border: none;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.75);
-  color: #fe424d;
+  /* color: #fe424d; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,8 +224,13 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
+.wishlist-btn i{
+    font-size: 1.8rem;
+}
+
 .wishlist-btn:hover {
-  background-color: #fe424d;
+  /* background-color: #fe424d; */
+  background-color: #111827;
   color: white;
   transform: scale(1.05);
 }
@@ -212,6 +241,7 @@ body {
   border-radius: 1rem;
   padding: 1.5rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  /* margin-top: 65px; */
 }
 
 .show-card h3 {
@@ -240,10 +270,11 @@ body {
 /* Forms */
 .form-container {
   background-color: white;
+  border: 2px solid #000;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  margin-top: 2rem;
+  /* margin-top: 5rem; */
   margin-bottom: 2rem;
 }
 
@@ -254,8 +285,10 @@ body {
 
 .form-control,
 .form-select {
-  border-radius: 0.75rem;
-  padding: 0.7rem 1rem;
+  /* border-radius: 0.75rem;
+  padding: 0.7rem 1rem; */
+      border: 1.5px solid #ced4da;
+    border-radius: 10px;
 }
 
 .form-control:focus,
@@ -326,7 +359,7 @@ body {
   margin: 0 auto;
   padding: 3rem 1rem;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr;
   gap: 2rem;
 }
 
@@ -759,18 +792,18 @@ body {
     color:white;
 }
 .booking-card{
+      position: sticky;
+      top: 100px;
 
-    position: sticky;
+    background:#fff;
 
-    top: 100px;
+    border:1px solid #ddd;
 
-    background: white;
+    border-radius:18px;
 
-    border-radius: 18px;
+    padding:24px;
 
-    padding: 25px;
-
-    box-shadow: 0 8px 25px rgba(0,0,0,.12);
+    box-shadow:0 8px 24px rgba(0,0,0,.12);
 
 }
 .brand-name{

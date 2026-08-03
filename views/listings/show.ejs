@@ -1,10 +1,18 @@
 <% layout("/layouts/boiler") %>
+    <!-- <div class="row">
+       <div class="col-12 col-md-8 mx-auto"> -->
+    
+        <div class="container mt-4">
     <div class="row">
-       <div class="col-12 col-md-8 mx-auto">
+
+      <!-- LEFT SIDE -->
+<div class="col-lg-8">
+
 
     
 
-    <div class="row col-8 offset-2 show-card listing-card">
+    <!-- <div class="row col-8 offset-2 show-card listing-card"> -->
+      <div class="card show-card listing-card">
       <a href="/listings" class="back-btn">
             <i class="fa-solid fa-arrow-left"></i>
             Back to Listings
@@ -14,52 +22,76 @@
   <div class="card-body">
     <p>Owned by <i> <%= listing.owner.username %> </i></p> 
   <p> <%= listing.description %> </p> 
-   <p> &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "Price not available" %></p> 
+   <p> &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "Price not available" %> /night</p> 
      <p> <%= listing.location %> </p> 
        <p> <%= listing.country %> </p> 
+  </div>
 
-       <div class="mb-3">
-        <label class="form-label">Check In</label>
-        <input
-            type="date"
-            name="checkIn"
-            class="form-control"
-            required
-        >
+    </div> <!-- End Card -->
+
+</div> <!-- End Left Column -->
+
+<!-- RIGHT COLUMN -->
+<div class="col-lg-4">
+
+    <div class="booking-card">
+
+        <h3 class="mb-3">
+            ₹<%= listing.price.toLocaleString("en-IN") %>
+            <span class="fs-6 text-muted">/ night</span>
+        </h3>
+
+        <form action="/bookings/<%= listing._id %>" method="POST">
+
+            <div class="mb-3">
+                <label class="form-label">Check In</label>
+                <input
+                    type="date"
+                    name="checkIn"
+                    class="form-control"
+                    required
+                >
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Check Out</label>
+                <input
+                    type="date"
+                    name="checkOut"
+                    class="form-control"
+                    required
+                >
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Guests</label>
+                <input
+                    type="number"
+                    name="guests"
+                    class="form-control"
+                    value="1"
+                    min="1"
+                    required
+                >
+            </div>
+
+            <button class="btn btn-danger w-100">
+                <i class="fa-solid fa-calendar-check"></i>
+                Reserve
+            </button>
+
+        </form>
+
     </div>
 
-    <div class="mb-3">
-        <label class="form-label">Check Out</label>
-        <input
-            type="date"
-            name="checkOut"
-            class="form-control"
-            required
-        >
-    </div>
+</div>
 
-    <div class="mb-3">
-        <label class="form-label">Guests</label>
-        <input
-            type="number"
-            name="guests"
-            class="form-control"
-            min="1"
-            value="1"
-            required
-        >
-    </div>
+</div> <!-- End First Row -->
 
-       <!-- Booking Ejs -->
-       <form action="/bookings/<%=listing._id %>" method="post">
-            <button type="submit" class="btn btn-danger w-100">
-        <i class="fa-solid fa-calendar-check"></i> Book Now
-    </button>
-       </form>
+<!-- SECOND ROW -->
+<div class="row mt-5">
 
-    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p> -->
-  </div>  
-    </div>
+<div class="col-lg-8">
 
 <div class="col-8 offset-2">
     <h4>Where you'll be</h4>
@@ -69,10 +101,10 @@
     <br>
      <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
     <div class="btns">
-    <a href="/listings/<%=listing._id%>/edit"  class="btn btn-dark col-0 offset-3 edit-btn">Edit</a>
+    <a href="/listings/<%=listing._id%>/edit"  class="btn btn-dark col-0 offset-3 edit-btn"><i class="fa-regular fa-pen-to-square"></i>Edit</a>
     <br><br>
     <form method="POST" action="/listings/<%=listing._id %>?_method=DELETE" >
-        <button class="btn btn-dark  offset-5">Delete</button>
+        <button class="btn btn-dark d-flex align-items-center gap-2"><i class="fa-solid fa-trash"></i>Delete</button>
     </form>
     </div>
     <% } %>
