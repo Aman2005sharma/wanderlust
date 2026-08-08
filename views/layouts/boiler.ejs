@@ -24,14 +24,23 @@
 <%- include("../includes/navbar.ejs") %>
 
 
+<% if (isAuthPage) { %>
 
-  <div class="container">
-<%- include("../includes/flash.ejs") %> 
-<main class="flex-grow-1">
-   <%- body %>
-</main>
-    
-  </div>
+    <main class="flex-grow-1">
+        <%- body %>
+    </main>
+
+<% } else { %>
+
+    <div class="container">
+        <%- include("../includes/flash.ejs") %>
+
+        <main class="flex-grow-1">
+            <%- body %>
+        </main>
+    </div>
+
+<% } %>
 
   <!--  this 3rd -->
     <% if (!hideFooter) { %>
