@@ -1,95 +1,103 @@
 <% layout("/layouts/boiler") %>
 
-<div class="auth-page signup-page">
+<div class="auth-page">
 
-    <div class="login-card">
-
-        <div class="login-icon">
-            <i class="fa-solid fa-compass"></i>
+    <!-- LEFT SIDE -->
+    <div class="auth-image signup-image">
+        <div class="auth-image-overlay">
+            <h1>Join Wanderlust</h1>
+            <p>
+                Create your account and discover amazing places
+                around the world.
+            </p>
         </div>
+    </div>
 
-        <h2>Create Your Account</h2>
+    <!-- RIGHT SIDE -->
+    <div class="auth-form">
 
-        <p class="subtitle">
-            Join Wanderlust and start exploring.
-        </p>
+        <div class="login-card">
 
-        <form action="/signup" method="POST">
-
-            <!-- Username -->
-            <div class="mb-3">
-                <label>Username</label>
-
-                <div class="input-box">
-                    <i class="fa-solid fa-user"></i>
-
-                    <input
-                        type="text"
-                        name="username"
-                        class="form-control"
-                        placeholder="Enter username"
-                        required>
-                </div>
+            <div class="login-icon">
+                <i class="fa-solid fa-compass"></i>
             </div>
 
-            <!-- Email -->
-            <div class="mb-3">
-                <label>Email</label>
+            <h2>Create Your Account</h2>
 
-                <div class="input-box">
-                    <i class="fa-solid fa-envelope"></i>
+            <p class="subtitle">
+                Join Wanderlust and start exploring.
+            </p>
 
-                    <input
-                        type="email"
-                        name="email"
-                        class="form-control"
-                        placeholder="Enter email"
-                        required>
+            <form action="/signup" method="POST">
+
+                <div class="auth-input">
+                    <label>Username</label>
+
+                    <div class="input-box">
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Enter username"
+                            required>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Password -->
-            <div class="mb-3">
-                <label>Password</label>
+                <div class="auth-input">
+                    <label>Email</label>
 
-                <div class="input-box">
-                    <i class="fa-solid fa-lock"></i>
+                    <div class="input-box">
+                        <i class="fa-solid fa-envelope"></i>
 
-                    <input
-                        type="password"
-                        name="password"
-                        class="form-control"
-                        placeholder="Create password"
-                        required>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter email"
+                            required>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Confirm Password -->
-            <div class="mb-4">
-                <label>Confirm Password</label>
+                <div class="auth-input">
+                    <label>Password</label>
 
-                <div class="input-box">
-                    <i class="fa-solid fa-lock"></i>
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
 
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        class="form-control"
-                        placeholder="Confirm password"
-                        required>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Create password"
+                            required>
+                    </div>
                 </div>
-            </div>
 
-            <button class="login-btn">
-                Create Account
-            </button>
+                <div class="auth-input">
+                    <label>Confirm Password</label>
 
-        </form>
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
 
-        <p class="signup-link mt-4">
-            Already have an account?
-            <a href="/login">Login</a>
-        </p>
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            placeholder="Confirm password"
+                            required>
+                    </div>
+                </div>
+
+                <button class="login-btn">
+                    Create Account
+                </button>
+
+            </form>
+
+            <p class="signup-link">
+                Already have an account?
+                <a href="/login">Login</a>
+            </p>
+
+        </div>
 
     </div>
 

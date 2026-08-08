@@ -108,6 +108,7 @@ app.engine('ejs', ejsMate);
 //    res.send(registeredUser);
 // });
 
+
 app.use((req,res,next)=>{
     res.locals.success=req.flash("success");
       res.locals.error=req.flash("error");
@@ -119,6 +120,26 @@ app.use((req,res,next)=>{
 
 app.get("/", (req, res) => {
     res.redirect("/listings");
+});
+
+app.use((req, res, next) => {
+    res.locals.hideNavbar = false;
+        next();
+});
+
+app.use((req, res, next) => {
+  res.locals.isAuthPage =
+        req.path === "/login" || req.path === "/signup";
+            res.locals.currentPath = req.path;
+
+    next();
+});
+
+// added new 1st 
+app.use((req, res, next) => {
+    res.locals.hideNavbar = false;
+    res.locals.hideFooter = false;
+    next();
 });
 
 app.use("/listings",listingRouter)

@@ -574,76 +574,152 @@ body {
   }
 }
 
-.auth-page{
-    min-height:100vh;
-    width:100%;
+.auth-page {
+    min-height: calc(100vh - 72px);
+    width: 100%;
+    display: flex;
+    margin-top: 0;
+    background: #fff;
+}
+
+.auth-image {
+    width: 48%;
+    min-height: calc(100vh - 72px);
+
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.login-image{
+      flex:1;
+    background:url("/images/login-bg.jpg") center center/cover no-repeat;
+    position:relative;
+}
+/* 
+.image-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+    padding:40px;
+} */
+
+.auth-image-overlay h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    letter-spacing: -1px;
+}
+
+.auth-image-overlay p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+
+    opacity: 0.95;
+}
+
+.auth-form{
+    flex:0.8;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:2rem;
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    background:#fff;
+    padding:50px;
 }
 
 
-.login-page{
-      background-image:
-    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
-    url("/images/login-bg.jpg");
-}
-
-.login-card{
+.auth-card{
     width:100%;
-    max-width:450px;
-
-    padding:2rem;
-
-    border-radius:25px;
-
-    background:rgba(255,255,255,.18);
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.3);
-
-    box-shadow:0 20px 40px rgba(0,0,0,.25);
-}
-
-@media (max-width:768px){
-
-.auth-page{
-
-    padding:1rem;
-
-    background-position:center center;
-}
-
-.login-card{
-
-    max-width:100%;
-
-    padding:1.5rem;
-
+    max-width:430px;
+    background:#fff;
+    padding:20px;
     border-radius:20px;
+    box-shadow:none;
 }
 
-.login-card h2{
+@media (max-width: 768px) {
 
-    font-size:1.8rem;
-}
+    /* FULL AUTH PAGE BACKGROUND */
+    .auth-page {
+        min-height: calc(100vh - 72px);
+        width: 100%;
 
-.subtitle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-    font-size:0.95rem;
-}
+        padding: 1.5rem;
 
-.login-btn{
+        background:
+            linear-gradient(
+                rgba(0, 0, 0, 0.40),
+                rgba(0, 0, 0, 0.50)
+            ),
+            url("/images/login-bg.jpg") center / cover no-repeat;
+    }
 
-    padding:0.8rem;
-}
 
+    /* SIGNUP FULL BACKGROUND */
+    .auth-page:has(.signup-image) {
+        background:
+            linear-gradient(
+                rgba(0, 0, 0, 0.40),
+                rgba(0, 0, 0, 0.50)
+            ),
+            url("/images/signup-bg.jpg") center / cover no-repeat;
+    }
+
+
+    /* Hide desktop left image */
+    .auth-image {
+        display: none;
+    }
+
+
+    /* Remove white area */
+    .auth-form {
+        width: 100%;
+        flex: none;
+
+        padding: 0;
+
+        background: transparent;
+    }
+
+
+    /* GLASS CARD */
+    .login-card {
+        width: 100%;
+        max-width: 430px;
+
+        padding: 2rem 1.5rem;
+
+        background: rgba(255, 255, 255, 0.18);
+
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+
+        border: 1px solid rgba(255, 255, 255, 0.35);
+
+        border-radius: 25px;
+
+        box-shadow:
+            0 20px 50px rgba(0, 0, 0, 0.35);
+    }
 }
 
 .login-icon{
@@ -658,7 +734,7 @@ body {
 
 }
 
-.login-card h2{
+.auth-card h2{
 
     text-align:center;
 
@@ -756,9 +832,12 @@ body {
 
 }
 
-.signup-page{
-      background-image:
-        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+.signup-image {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.55)
+        ),
         url("/images/signup-bg.jpg");
 }
 .back-btn{
@@ -822,4 +901,7 @@ body {
     transform:scale(1.2);
     color:gold;
     text-shadow:0 0 10px gold;
+}
+.details a{
+  text-decoration: none;
 }

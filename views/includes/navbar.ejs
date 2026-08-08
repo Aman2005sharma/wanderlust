@@ -24,6 +24,8 @@
         <!-- <a class="nav-link" href="/listings">Explore</a> -->
       </div>
 
+<% if (!isAuthPage) { %>
+
   <form class="d-flex search-form w-100 justify-content-center" action="/listings" method="GET" role="search">
  <input
     class="form-control me-2 input-btn"
@@ -37,19 +39,45 @@
     <i class="fa-solid fa-magnifying-glass"></i> Search
   </button>
 </form>
+<% } %>
 
-      <div class="navbar-nav ms-lg-auto">
-         <a class="nav-link" href="/listings/new">
-          <!-- <i class="fa-solid fa-plus"></i> -->
-          + Become a Host
+<div class="navbar-nav ms-lg-auto">
+
+    <% if (!isAuthPage) { %>
+
+        <a class="nav-link" href="/listings/new">
+            + Become a Host
         </a>
 
-        <% if(!currUser) { %>
-          <a class="nav-link" href="/signup"><b>Sign up</b></a>
-          <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% } %>
+    <% } %>
+
+          <% if (!currUser) { %>
+
+    <% if (isAuthPage) { %>
+       <a class="nav-link" href="/login">
+            <b>Log In</b>
+        </a>
+
+        <a class="btn btn-dark rounded-pill px-4 ms-2" href="/signup">
+            Sign Up
+        </a>
+
+    <% } else { %>
+
+        <a class="nav-link" href="/signup">
+            <b>Sign Up</b>
+        </a>
+
+        <a class="nav-link" href="/login">
+            <b>Log In</b>
+        </a>
+
+    <% } %>
+
+<% } %>
 
         <% if(currUser) { %>
+              <% if (!isAuthPage) { %>
           <a class="nav-link" href="/wishlist">♡ Wishlist</a>
           <!-- <a class="nav-link" href="/logout">Log out</a> -->
           <div class="dropdown">
@@ -93,6 +121,8 @@
   </ul>
 
 </div>
+    <% } %>
+
         <% } %>
       </div>
     </div>
