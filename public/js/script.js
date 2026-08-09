@@ -18,3 +18,29 @@
     }, false)
   })
 })()
+
+const togglePassword = document.getElementById("togglePassword");
+const password = document.getElementById("password");
+
+if (togglePassword && password) {
+
+    togglePassword.addEventListener("click", () => {
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            togglePassword.innerHTML =
+                '<i class="fa-regular fa-eye-slash"></i>';
+
+        } else {
+
+            password.type = "password";
+
+            togglePassword.innerHTML =
+                '<i class="fa-regular fa-eye"></i>';
+        }
+
+    });
+
+}

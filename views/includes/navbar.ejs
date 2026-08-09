@@ -51,11 +51,24 @@
 
     <% } %>
 
-          <% if (!currUser) { %>
 
-    <% if (isAuthPage) { %>
-       <a class="nav-link" href="/login">
+
+<% if (!currUser) { %>
+
+    <% if (currentPath === "/login") { %>
+
+        <a class="btn btn-dark rounded-pill px-4" href="/login">
             <b>Log In</b>
+        </a>
+
+        <a class="nav-link ms-2" href="/signup">
+            Sign Up
+        </a>
+
+    <% } else if (currentPath === "/signup") { %>
+
+        <a class="nav-link" href="/login">
+            Log In
         </a>
 
         <a class="btn btn-dark rounded-pill px-4 ms-2" href="/signup">
