@@ -17,10 +17,13 @@
             <i class="fa-solid fa-arrow-left"></i>
             Back to Listings
         </a>
-         <h3><%= listing.title %></h3>
+         <h2><%= listing.title %></h2>
        <img src="<%=  listing.image.url %>" class="card-img-top show-img" alt="listing_image">
   <div class="card-body">
-    <p>Owned by <i> <%= listing.owner.username %> </i></p> 
+    <p class="listing-owner">
+    Owned by <strong><%= listing.owner.username %></strong>
+</p>
+    <!-- <p>Owned by <i> <%= listing.owner.username %> </i></p>  -->
   <p> <%= listing.description %> </p> 
    <p> &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "Price not available" %> /night</p> 
      <p> <%= listing.location %> </p> 
@@ -93,9 +96,10 @@
 
 <div class="col-lg-8">
 
-<div class="col-8 offset-2">
+<!-- <div class="col-8 offset-2"> -->
+<div class="col-12 col-md-8 offset-md-2">
     <h4>Where you'll be</h4>
-    <div id="map" style="height: 250px; width: 100%;"></div>
+    <div id="map" style="height: 250px; width: 100%; "></div>
 </div>
 
     <br>
@@ -112,7 +116,8 @@
       <hr>
 
       
-      <div class="col-8  offset-2">
+      <!-- <div class="col-8  offset-2"> -->
+      <div class="col-12 col-md-8 offset-md-2">
         
          <% if(currUser) { %>
         <h4>Leave a review</h4>
@@ -159,7 +164,8 @@
 
   <% for(let review of listing.reviews) { %>
 
-    <div class="card col-5 ms-3 mb-3 review-card">
+    <!-- <div class="card col-5 ms-3 mb-3 review-card"> -->
+      <div class="card col-12 col-md-5 mb-3 review-card">
       <h5 class="card-title">@<%= review.author.username %></h5>
 
       <p class="starability-result card-text"

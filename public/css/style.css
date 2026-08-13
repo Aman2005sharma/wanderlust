@@ -171,10 +171,37 @@ body {
   margin-left: 3rem;
   /* margin:auto; */
   background-color: white;
+  background: transparent;
+  overflow: visible;
   border-radius: 1rem;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding-bottom: 0.75rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.listings-grid {
+    max-width: 1420px;
+    margin: 24px auto 0;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+
+    .listing-card {
+        width: calc(100% - 32px);
+        margin-left: auto;
+        margin-right: auto;
+
+        border-radius: 18px;
+        overflow: hidden;
+
+        background: #fff;
+
+        border: 1px solid rgba(0, 0, 0, 0.04);
+
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    }
+
 }
 
 .listing-card:hover {
@@ -194,12 +221,47 @@ body {
   object-fit: cover;
 }
 
+@media (max-width: 768px) {
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        display: block;
+    }
+
+}
+
+
+
 .card-body {
   padding: 0.75rem 0.25rem;
 }
 
 .card-text {
   font-weight: 400;
+}
+
+@media (max-width: 768px) {
+
+    .listing-title {
+        font-size: 1rem;
+        font-weight: 650;
+        margin-bottom: 5px;
+        color: #111827;
+    }
+
+    .listing-price {
+        font-size: 0.95rem;
+        color: #374151;
+    }
+
+    .tax-info {
+        font-size: 0.75rem;
+        color: #6b7280;
+        font-style: normal;
+    }
+
 }
 
 /* Wishlist */
@@ -270,6 +332,24 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+
+    .wishlist-form {
+        top: 10px;
+        right: 10px;
+    }
+
+    .wishlist-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .wishlist-btn i {
+        font-size: 19px;
+    }
+
+}
+
 /* Show Page */
 .show-card {
   background-color: white;
@@ -279,9 +359,40 @@ body {
   /* margin-top: 65px; */
 }
 
-.show-card h3 {
+@media (max-width: 768px) {
+
+    .show-card {
+        width: calc(100% - 24px);
+        margin: 18px auto 80px;
+
+        padding: 16px;
+
+        border-radius: 18px;
+
+        background: #fff;
+
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+}
+
+/* .show-card h3 {
   font-weight: 700;
   margin-bottom: 1rem;
+} */
+
+@media (max-width: 768px) {
+
+    .show-card h1,
+    .show-card h2 {
+        font-size: 1.2rem;
+        font-weight: 750;
+
+        margin-bottom: 10px;
+
+        color: #111827;
+    }
+
 }
 
 .show-card p {
@@ -295,11 +406,48 @@ body {
   border-radius: 1rem;
 }
 
+@media (max-width: 768px) {
+
+    .show-card img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+
+        object-fit: cover;
+
+        border-radius: 12px;
+
+        display: block;
+    }
+
+}
+
+.listing-owner {
+    font-size: 0.78rem;
+    color: #6b7280;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.listing-owner strong {
+    color: #111827;
+}
+
+
+
 .btns {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+
+    #map {
+        border-radius: 14px;
+       
+    }
+
 }
 
 /* Forms */
@@ -363,6 +511,39 @@ body {
 .review-card .card-title {
   font-size: 1rem;
   font-weight: 700;
+}
+
+@media (max-width: 768px) {
+
+    /* Review section */
+    .review-card {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+
+        padding: 14px;
+
+        border-radius: 14px;
+
+        border: 1px solid #eee;
+
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .review-card .card-title {
+        font-size: 0.9rem;
+        font-weight: 700;
+
+        margin-bottom: 8px;
+    }
+
+    .review-card .card-text {
+        font-size: 0.8rem;
+        line-height: 1.5;
+
+        color: #555;
+    }
+
 }
 
 /* Alerts */
@@ -556,7 +737,7 @@ body {
   }
 }
 
-.hero-banner {
+/* .hero-banner {
   height: 50vh;
   width: 100%;
   min-height: 320px;
@@ -573,39 +754,146 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+} */
+
+.hero-banner {
+    max-width: 1500px;
+    height: 430px;
+
+    margin: 20px auto 0;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.50)
+        ),
+        url("/images/hero.jpg") center / cover no-repeat;
 }
 
-.hero-overlay {
+/* .hero-overlay {
   text-align: center;
   color: white;
   padding: 1rem;
+} */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 40px;
 }
 
-.hero-overlay h1 {
+.hero-badge {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(8px);
+
+    font-size: 0.85rem;
+
+    letter-spacing: 0.2px;
+}
+
+/* .hero-overlay h1 {
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 0.75rem;
 }
 
-.hero-overlay p {
+.hero-overlay h1 span {
+    font-weight: 500;
+} */
+
+.hero-overlay h1 {
+    margin: 0 0 14px;
+
+    font-size: 4rem;
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    text-shadow: 0 3px 15px rgba(0,0,0,0.3);
+}
+
+.hero-overlay h1 span {
+    font-weight: 500;
+}
+
+/* .hero-overlay p {
   font-size: 1.25rem;
   margin-bottom: 0;
+} */
+
+.hero-overlay p {
+    margin: 0;
+
+    font-size: 1.15rem;
+
+    font-weight: 400;
+
+    letter-spacing: 0.2px;
+
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 @media (max-width: 768px) {
   .hero-banner {
-    height: 32vh;
-    min-height: 240px;
-    border-radius: 1.25rem;
-    margin: 1rem 0 1.5rem;
+        height: 210px;
+        min-height: 210px;
+
+        border-radius: 16px;
+        margin: 14px 0 18px;
+
+        overflow: hidden;
   }
 
   .hero-overlay h1 {
-    font-size: 2rem;
+    /* font-size: 2rem; */
+            font-size: 1.8rem;
+        line-height: 1.1;
+        font-weight: 800;
+
+        margin-bottom: 10px;
   }
 
   .hero-overlay p {
-    font-size: 1rem;
+    /* font-size: 1rem; */
+        font-size: 0.8rem;
+        line-height: 1.4;
+
+        max-width: 270px;
+
+        margin: 0 auto;
   }
 }
 
@@ -1173,6 +1461,30 @@ body {
 .back-btn:hover{
     background:#ff385c;
     color:white;
+}
+
+@media (max-width: 768px) {
+
+    .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+
+        padding: 7px 12px;
+
+        border-radius: 999px;
+
+        background: #f8f8f8;
+
+        color: #555;
+
+        font-size: 0.72rem;
+
+        text-decoration: none;
+
+        margin-bottom: 12px;
+    }
+
 }
 .booking-card{
       position: sticky;
