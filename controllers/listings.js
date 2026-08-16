@@ -84,16 +84,6 @@ if (response.data.length > 0) {
       let filename = req.file.filename;
       newListing.image = { url, filename };
     }
-if (response.data.length > 0) {
-  newListing.latitude = parseFloat(response.data[0].lat);
-  newListing.longitude = parseFloat(response.data[0].lon);
-}
-
-
-console.log("LAT:", newListing.latitude);
-console.log("LNG:", newListing.longitude);
-console.log(response.data);
-
 
 
     await newListing.save();
@@ -134,7 +124,6 @@ console.log(response.data);
          
         let deletedListing=await Listing.findByIdAndDelete(id);
         req.flash("success"," Listing Deleted");
-        console.log(deletedListing);
         res.redirect("/listings");
     };
 

@@ -3,18 +3,26 @@
     "node":"22.16.0"
 
   },
-  "name": "majorproject",
+  "name": "wanderlust",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
       "start": "node app.js",
   "build": "npm install --legacy-peer-deps",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+     "mern",
+  "travel",
+  "booking",
+  "nodejs",
+  "express",
+  "mongodb",
+  "full-stack"
+  ],
+  "author": "Aman Sharma",
   "license": "ISC",
-  "description": "",
+  "description": "A full-stack travel and stay booking platform built with Node.js, Express, MongoDB and EJS.",
   "dependencies": {
     "axios": "^1.17.0",
     "cloudinary": "^2.10.0",

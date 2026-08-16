@@ -25,7 +25,7 @@
         </div>  
 
           <div class="mb-3 mt-1">
-            Original listing Image <br>
+            Current Listing Image <br>
             <img 
              src="<%= originalImageUrl %>" 
                class="rounded"
@@ -47,7 +47,7 @@
         <div class="row">
         <div class="mb-3 col-md-4">
         <label for="price" class="form-label">Price</label>     
-        <input name="listing[price]" value="<%=listing.price %>" type="number" class="form-control" required>
+        <input name="listing[price]" value="<%=listing.price %>" type="number" min="0" class="form-control" required>
         <div class="invalid-feedback">Pls enter a valid price</div>
         </div>
 
@@ -64,7 +64,7 @@
          <div class="invalid-feedback">Pls enter a valid location</div>
          </div>
         
-        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+        <button class="btn btn-dark edit-btn mt-3">    Save Changes </button>
     </form>
           </div>
  </div>

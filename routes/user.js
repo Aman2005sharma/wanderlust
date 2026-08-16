@@ -4,11 +4,12 @@ const router=express.Router();
 const User=require("../models/user.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const passport=require("passport");
-const { saveRedirectUrl } = require("../middleware.js");
+// const { saveRedirectUrl } = require("../middleware.js");
+const { saveRedirectUrl, isLoggedIn } = require("../middleware.js");
 const UserController=require("../controllers/users.js"); 
 
 const Listing = require("../models/listing.js");
-const { isLoggedIn } = require("../middleware.js");
+// const { isLoggedIn } = require("../middleware.js");
 
 router
 .route("/signup")

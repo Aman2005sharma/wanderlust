@@ -17,17 +17,69 @@
 
         <% bookings.forEach((booking)=> { %>
 
-            <div class="card mb-3">
-                <div class="card-body">
+            <div class="booking-history-card">
 
-                    <h3><%= booking.listing.title %></h3>
+    <div class="booking-card-header">
+        <div>
+            <span class="booking-label">BOOKING CONFIRMED</span>
+            <h3><%= booking.listing.title %></h3>
+        </div>
 
-                    <p>₹ <%= booking.totalPrice %></p>
+        <div class="booking-status">
+            <i class="fa-solid fa-circle-check"></i>
+            Confirmed
+        </div>
+    </div>
 
-                    <p>Guests: <%= booking.guests %></p>
+    <div class="booking-details">
 
-                </div>
+        <div class="booking-detail">
+            <i class="fa-regular fa-calendar-check"></i>
+            <div>
+                <span>Check-in</span>
+                <strong>
+                    <%= new Date(booking.checkIn).toLocaleDateString("en-IN") %>
+                </strong>
             </div>
+        </div>
+
+        <div class="booking-detail">
+            <i class="fa-regular fa-calendar-xmark"></i>
+            <div>
+                <span>Check-out</span>
+                <strong>
+                    <%= new Date(booking.checkOut).toLocaleDateString("en-IN") %>
+                </strong>
+            </div>
+        </div>
+
+        <div class="booking-detail">
+            <i class="fa-solid fa-users"></i>
+            <div>
+                <span>Guests</span>
+                <strong><%= booking.guests %></strong>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="booking-card-footer">
+
+        <div>
+            <span>Total amount</span>
+            <strong>
+                ₹<%= booking.totalPrice.toLocaleString("en-IN") %>
+            </strong>
+        </div>
+
+        <div class="booked-date">
+            Booked on
+            <%= new Date(booking.bookedAt).toLocaleDateString("en-IN") %>
+        </div>
+
+    </div>
+
+</div>
 
         <% }) %>
 

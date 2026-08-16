@@ -8,7 +8,7 @@ const {validateReview,isLoggedIn,isReviewAuthor}=require("../middleware.js");
 
 
 const reviewController=require("../controllers/reviews.js");
-const review= require("../models/review.js")
+// const review= require("../models/review.js")
 
 //POST route
 router.post("/",validateReview,isLoggedIn,

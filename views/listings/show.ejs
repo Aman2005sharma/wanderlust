@@ -1,6 +1,5 @@
 <% layout("/layouts/boiler") %>
-    <!-- <div class="row">
-       <div class="col-12 col-md-8 mx-auto"> -->
+
     
   <div class="container mt-4">
     <div class="row">
@@ -11,7 +10,6 @@
 
     
 
-    <!-- <div class="row col-8 offset-2 show-card listing-card"> -->
       <div class="card show-card listing-card">
       <a href="/listings" class="back-btn">
             <i class="fa-solid fa-arrow-left"></i>
@@ -23,7 +21,6 @@
     <p class="listing-owner">
     Owned by <strong><%= listing.owner.username %></strong>
 </p>
-    <!-- <p>Owned by <i> <%= listing.owner.username %> </i></p>  -->
   <p> <%= listing.description %> </p> 
    <p> &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "Price not available" %> /night</p> 
      <p> <%= listing.location %> </p> 
@@ -89,12 +86,7 @@
 
 </div>
 
-<!-- </div> End First Row -->
 
-<!-- SECOND ROW -->
-<!-- <div class="row mt-5">
-
-<div class="col-lg-8"> -->
 
 
 <div class="map-section">
@@ -123,16 +115,12 @@
       <hr>
 
       
-      <!-- <div class="col-8  offset-2"> -->
       <div class="col-12 col-md-8 offset-md-2">
         
          <% if(currUser) { %>
         <h4>Leave a review</h4>
         <form action="/listings/<%=listing.id %>/reviews" method="POST" novalidate class="needs-validation">
-          <!-- <div class="mb-3 mt-3">
-          
-            <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
-          </div> -->
+         
 <div class="mb-3 mt-3">
   <label for="rating"  class="form-label">Rating</label> 
 <fieldset class="starability-slot">
@@ -160,7 +148,6 @@
         <% } %>
        
       
-        <!-- <p><b>All Reviews</b></p> -->
          <h5 class="mb-3">
     Reviews (<%= listing.reviews.length %>)
         </h5>
@@ -171,7 +158,6 @@
 
   <% for(let review of listing.reviews) { %>
 
-    <!-- <div class="card col-5 ms-3 mb-3 review-card"> -->
       <div class="card col-12 col-md-5 mb-3 review-card">
       <h5 class="card-title">@<%= review.author.username %></h5>
 

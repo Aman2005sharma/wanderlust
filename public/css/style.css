@@ -1592,3 +1592,123 @@ body {
 .details a{
   text-decoration: none;
 }
+
+/* Booking History Card */
+
+.booking-history-card {
+    background: #fff;
+    border: 1px solid #eeeeee;
+    border-radius: 20px;
+    padding: 26px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    transition: 0.25s ease;
+}
+
+.booking-history-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Header */
+
+.booking-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.booking-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #ff385c;
+    margin-bottom: 6px;
+}
+
+.booking-card-header h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+
+/* Status */
+
+.booking-status {
+    background: #f0faf4;
+    color: #198754;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.booking-status i {
+    margin-right: 5px;
+}
+
+
+/* Details */
+
+.booking-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 22px 0;
+}
+
+.booking-detail {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.booking-detail > i {
+    font-size: 20px;
+    color: #ff385c;
+}
+
+.booking-detail span {
+    display: block;
+    color: #777;
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+}
+
+.booking-detail strong {
+    font-size: 0.95rem;
+    color: #222;
+}
+
+
+/* Footer */
+
+.booking-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    border-top: 1px solid #eeeeee;
+}
+
+.booking-card-footer span {
+    display: block;
+    color: #777;
+    font-size: 0.8rem;
+}
+
+.booking-card-footer strong {
+    display: block;
+    font-size: 1.35rem;
+    margin-top: 3px;
+}
+
+.booked-date {
+    color: #888;
+    font-size: 0.8rem;
+}
