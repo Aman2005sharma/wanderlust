@@ -4,6 +4,8 @@ const Listing = require("../models/listing");
 
 module.exports.createBooking = async (req, res) => {
     const { listingId } = req.params;
+    const { checkIn, checkOut, guests } = req.body;
+
 
     const listing = await Listing.findById(listingId);
 
@@ -15,9 +17,9 @@ module.exports.createBooking = async (req, res) => {
     const booking = new Booking({
         user: req.user._id,
         listing: listing._id,
-        checkIn: new Date(),
-        checkOut: new Date(),
-        guests: 1,
+        checkIn: new Date(checkIn),
+        checkOut: new Date(checkOut),
+        guests: Number(guests),
         totalPrice: listing.price,
     });
 
